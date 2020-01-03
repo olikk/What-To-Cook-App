@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -76,9 +75,13 @@ public class LoginFragment extends Fragment {
                             Toast.makeText(getActivity().getApplicationContext(), "mot de passe incorrect", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getActivity().getApplicationContext(), "Vous êtes connecté", Toast.LENGTH_SHORT).show();
+
+                            SaveSharedPreferences.setLoggedIn(getActivity().getApplicationContext(),true);
+
                             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
                             navigationView.getMenu().findItem(R.id.nav_profile).setVisible(true);
                             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
                             ft.replace(R.id.nav_host_fragment, new HomeFragment());
                             ft.commit();
