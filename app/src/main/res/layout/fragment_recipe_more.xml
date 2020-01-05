@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.recipe.RecipeMoreFragment">
+
+    <ScrollView
+        android:layout_width="407dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="205dp"
+                android:background="#c1c1c1"
+                android:contentDescription="recipePhoto" />
+
+            <TextView
+                android:id="@+id/myingredients_text"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center|center_horizontal"
+                android:text="Recipe Name"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="130dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="144dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="Preparation Time"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="PrepTValue"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/recipe_text_ingred"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingredients"
+                android:textColorLink="#009688"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recipe_ingrediants"
+                android:layout_width="match_parent"
+                android:layout_height="127dp"
+                android:clickable="false"
+                tools:listitem="@layout/recipe_ingrediant"/>
+
+            <TextView
+                android:id="@+id/recipe_prep_text"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center|center_horizontal"
+                android:text="Préparation"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextSteps"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

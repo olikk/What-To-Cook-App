@@ -39,30 +39,22 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_login, R.id.nav_logout, R.id.nav_profile)
+                R.id.nav_recipes, R.id.nav_login, R.id.nav_logout, R.id.nav_my_ingredients)
                 .setDrawerLayout(drawer)
                 .build();
-        if (SaveSharedPreferences.getLoggedStatus(getApplicationContext()) == true) {
+        if (SaveSharedPreferences.getLoggedInUserId(getApplicationContext()) > 0) {
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
-            navigationView.getMenu().findItem(R.id.nav_profile).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_my_ingredients).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
         }
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
     }
 
@@ -83,9 +75,10 @@ public class MainActivity extends AppCompatActivity
         //Log.i("MyActivity", "it is "+id);
         if (id == R.id.nav_logout) {
             SaveSharedPreferences.setLoggedIn(getApplicationContext(),false);
+            SaveSharedPreferences.setLoggedInUserId(getApplicationContext(), -1);
             Toast.makeText(getApplicationContext(), "Déconnexion réussie", Toast.LENGTH_SHORT).show();
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
-            navigationView.getMenu().findItem(R.id.nav_profile).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_my_ingredients).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
         } else {
             navController.navigate(id);

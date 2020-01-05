@@ -7,6 +7,7 @@ android {
         applicationId "com.example.quoimangerapp"
         minSdkVersion 23
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -17,6 +18,10 @@ android {
                         "room.incremental"     : "true",
                         "room.expandProjection": "true"]
             }
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
         }
     }
     buildTypes {
@@ -36,14 +41,22 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.1.0'
     implementation 'androidx.navigation:navigation-ui:2.1.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.android.support:support-v4:29.+'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    def room_version = "2.2.2"
+    def room_version = "2.2.3"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'com.facebook.stetho:stetho:1.3.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 
 allprojects {

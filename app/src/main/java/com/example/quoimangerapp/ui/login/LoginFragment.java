@@ -21,7 +21,7 @@ import com.example.quoimangerapp.Database.Entity.User;
 import com.example.quoimangerapp.MyApplication;
 import com.example.quoimangerapp.R;
 import com.example.quoimangerapp.sessionmanagement.SaveSharedPreferences;
-import com.example.quoimangerapp.ui.home.HomeFragment;
+import com.example.quoimangerapp.ui.MyIngredientsFragment;
 import com.example.quoimangerapp.ui.register.RegisterFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -77,13 +77,14 @@ public class LoginFragment extends Fragment {
                             Toast.makeText(getActivity().getApplicationContext(), "Vous êtes connecté", Toast.LENGTH_SHORT).show();
 
                             SaveSharedPreferences.setLoggedIn(getActivity().getApplicationContext(),true);
+                            SaveSharedPreferences.setLoggedInUserId(getActivity().getApplicationContext(), user.getUid());
 
                             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
-                            navigationView.getMenu().findItem(R.id.nav_profile).setVisible(true);
+                            navigationView.getMenu().findItem(R.id.nav_my_ingredients).setVisible(true);
                             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
 
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.replace(R.id.nav_host_fragment, new HomeFragment());
+                            ft.replace(R.id.nav_host_fragment, new MyIngredientsFragment());
                             ft.commit();
                         }
 

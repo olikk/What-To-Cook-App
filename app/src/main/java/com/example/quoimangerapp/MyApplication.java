@@ -1,14 +1,14 @@
 package com.example.quoimangerapp;
 
-import android.app.Application;
-
+import androidx.multidex.MultiDexApplication;
 import androidx.room.Room;
 
 import com.example.quoimangerapp.Database.AppDatabase;
 import com.facebook.stetho.Stetho;
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
     public static MyApplication instance;
+
 
     private AppDatabase database;
     public void onCreate(){
