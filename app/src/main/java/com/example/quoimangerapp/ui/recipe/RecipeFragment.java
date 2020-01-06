@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.example.quoimangerapp.API.APIClient;
 import com.example.quoimangerapp.API.APIInterface;
 import com.example.quoimangerapp.API.retrofitModels.Recipes;
+import com.example.quoimangerapp.API.retrofitModels.RecipesList;
 import com.example.quoimangerapp.Adapters.MyRecipeRecyclerViewAdapter;
 import com.example.quoimangerapp.R;
 import com.example.quoimangerapp.dummy.DummyContent;
@@ -36,7 +37,7 @@ import retrofit2.Response;
 public class RecipeFragment extends Fragment {
 
     //private OnListFragmentInteractionListener mListener;
-    //private List<Recipes> values;
+    private List<Recipes> values = new ArrayList<>();
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -62,33 +63,28 @@ public class RecipeFragment extends Fragment {
     @Override
     public void onViewCreated(View root, Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
-
-        List<Recipes> values = new ArrayList<>();
         APIInterface apiInterface = APIClient.getApiInterface();
-
         RecyclerView recyclerView = root.findViewById(R.id.recipe_list_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
-        Call<List<Recipes>> call = apiInterface.allRecipes("e7c4eeade409451b97542747eedc1f65", 4);
-        call.enqueue(new Callback<List<Recipes>>() {
+        Call<RecipesList> call = apiInterface.allRecipes("application/json",
+                "application/json","e7c4eeade409451b97542747eedc1f65", 6);
+        call.enqueue(new Callback<RecipesList>() {
             @Override
-            public void onResponse(Call<List<Recipes>> call, Response<List<Recipes>> response) {
-                Log.d("TAG",  "here");
+            public void onResponse(Call<RecipesList> call, Response<RecipesList> response) {
                 Log.d("TAG", response.code() + "");
-                List<Recipes> values = response.body();
-                /*for(Recipes recipe : result) {
-                    resultText += recipe.toString();
-                }*/
+                values = response.body().getRecipesList();
+                recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
             }
             @Override
-            public void onFailure(Call<List<Recipes>> call, Throwable t) {
+            public void onFailure(Call<RecipesList> call, Throwable t) {
                 call.cancel();
-                System.out.println(call.toString());
+                System.out.println("call"+ call.toString());
                 t.printStackTrace();
             }
 
         });
-        recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
+
     }
 
     @Override

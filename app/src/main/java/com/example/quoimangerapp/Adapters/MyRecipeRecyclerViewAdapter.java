@@ -9,18 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.quoimangerapp.API.APIClient;
-import com.example.quoimangerapp.API.APIInterface;
 import com.example.quoimangerapp.API.retrofitModels.Recipes;
 import com.example.quoimangerapp.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRecyclerViewAdapter.ViewHolder> {
@@ -43,6 +37,7 @@ public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRe
         holder.mItem = mValues.get(position);
         Picasso.get().load("https://spoonacular.com/recipeImages/" + mValues.get(position)
                         .getImage()).into(holder.mPhotoView);
+        Log.d("TAG",  mValues.get(position).getTitle()+ "");
         holder.mContentView.setText(mValues.get(position).getTitle());
         /*holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

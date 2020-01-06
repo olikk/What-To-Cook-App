@@ -1,8 +1,10 @@
 package com.example.quoimangerapp.ui.login;
 
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.NotificationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -82,6 +84,7 @@ public class LoginFragment extends Fragment {
                             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
                             navigationView.getMenu().findItem(R.id.nav_my_ingredients).setVisible(true);
                             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+
 
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
                             ft.replace(R.id.nav_host_fragment, new MyIngredientsFragment());

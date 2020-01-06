@@ -1,5 +1,6 @@
 package com.example.quoimangerapp.ui.register;
 
+import android.app.NotificationManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -66,6 +68,17 @@ public class RegisterFragment extends Fragment {
                     db.userDao().insertAll(user);
                     Toast.makeText(getActivity().getApplicationContext(),
                             "Votre compte a été créé avec succès", Toast.LENGTH_SHORT).show();
+
+                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity().getApplicationContext(), "1");
+                    mBuilder.setSmallIcon(R.drawable.ic_menu_share);
+                    mBuilder.setContentTitle("QuoiManger");
+                    mBuilder.setContentText("Vous venez de créer votre compte!");
+
+                    NotificationManager mNotificationManager = (NotificationManager) getActivity().getSystemService(getContext().NOTIFICATION_SERVICE);
+
+                    // notificationID allows you to update the notification later on.
+                    mNotificationManager.notify(1, mBuilder.build());
+
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.nav_host_fragment, new LoginFragment());
                     ft.commit();

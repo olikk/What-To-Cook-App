@@ -22,12 +22,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-    public static final String BASE_URL = "https://api.spoonacular.com";
+    public static final String BASE_URL = "https://api.spoonacular.com/";
     public static final String API_KEY = "e7c4eeade409451b97542747eedc1f65";
-
-    private static APIInterface apiInterface = null;
     private static final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
     private static final OkHttpClient.Builder client = new OkHttpClient.Builder();
+    private static APIInterface apiInterface = null;
 
     static {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -63,14 +62,16 @@ public class APIClient {
 
 
 
-
+/*
     public void allRecipes(final Callback<List<Recipes>> callback) {
 
         Call<List<Recipes>> call = apiInterface.allRecipes(
+                "application/json",
+                "application/json",
                 API_KEY, 4
         );
         call.enqueue(callback);
-    }
+    }*/
 
     /**
      * Summarize Recipe
@@ -116,4 +117,5 @@ public class APIClient {
 
         call.enqueue(callback);
     }
+
 }
