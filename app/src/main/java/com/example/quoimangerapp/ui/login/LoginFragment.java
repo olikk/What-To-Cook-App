@@ -71,20 +71,20 @@ public class LoginFragment extends Fragment {
                 //login check
                 if ((TextUtils.isEmpty(email) || TextUtils.isEmpty(password))) {
                     Toast.makeText(getActivity().getApplicationContext(),
-                            "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                            "Fill all fields", Toast.LENGTH_SHORT).show();
                 } else {
                     AppDatabase db = MyApplication.getInstance().getDatabase();
                     User user = db.userDao().findByEmail(email);
                     if (user == null) {
                         Toast.makeText(getActivity().getApplicationContext(),
-                                "email inconnu", Toast.LENGTH_SHORT).show();
+                                "Unknown email", Toast.LENGTH_SHORT).show();
                     } else {
                         if (!user.getPassword().equals(password)) {
                             Toast.makeText(getActivity().getApplicationContext(),
-                                    "mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                                    "Wrong password", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getActivity().getApplicationContext(),
-                                    "Vous êtes connecté", Toast.LENGTH_SHORT).show();
+                                    "You are logged in", Toast.LENGTH_SHORT).show();
 
                             SaveSharedPreferences.setLoggedIn(getActivity()
                                     .getApplicationContext(),true);

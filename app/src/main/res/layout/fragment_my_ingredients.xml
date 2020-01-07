@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
 
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:gravity="center|center_horizontal"
-            android:text="Mes ingrédiants"
+            android:text="My ingredients"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/user_ingrediants"
             android:layout_width="match_parent"
-            android:layout_height="388dp"
+            android:layout_height="wrap_content"
             android:clickable="false"
             tools:listitem="@layout/mon_ingrediant">
 
@@ -40,27 +40,38 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/add_my_ingredient"
-                android:layout_width="281dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <Button
-                android:id="@+id/button_add_ingr"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="173dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#D0CFCFCD"
-                android:gravity="center|center_horizontal"
-                android:layoutDirection="inherit"
-                android:text="Ajouter ingrédiant"
-                android:textColor="#202E20" />
+                android:layout_marginBottom="0dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/add_my_ingredient"
+                    android:layout_width="281dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/button_add_ingr"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="173dp"
+                    android:layout_height="wrap_content"
+                    android:background="#D0CFCFCD"
+                    android:gravity="center|center_horizontal"
+                    android:layoutDirection="inherit"
+                    android:text="add ingredient"
+                    android:textColor="#202E20" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <Button
@@ -68,10 +79,11 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
             android:background="#D08BC34A"
             android:gravity="center|center_horizontal"
             android:layoutDirection="inherit"
-            android:text="Proposer des recettes"
+            android:text="Show recipes"
             android:textColor="#202E20" />
 
     </LinearLayout>

@@ -7,11 +7,11 @@
         <item
             android:id="@+id/nav_recipes"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Recettes" />
+            android:title="Recipes" />
         <item
             android:id="@+id/nav_my_ingredients"
             android:icon="@android:drawable/btn_star_big_on"
-            android:title="Mes ingrédiants"
+            android:title="My ingredients"
             android:visible="false"/>
     </group>
 
@@ -19,10 +19,10 @@
         <menu>
             <item
                 android:id="@+id/nav_login"
-                android:title="Connexion" />
+                android:title="Log In" />
             <item
                 android:id="@+id/nav_logout"
-                android:title="Déconnexion"
+                android:title="Log Out"
                 android:visible="false"/>
 
         </menu>

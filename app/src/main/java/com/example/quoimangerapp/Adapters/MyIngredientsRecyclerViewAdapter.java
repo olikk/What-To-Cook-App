@@ -43,12 +43,14 @@ public class MyIngredientsRecyclerViewAdapter extends RecyclerView.Adapter<MyIng
         holder.mContentView.setText(mValues.get(position).getIngredient());
         holder.mDelete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                UserIngredient theRemovedItem = mValues.get(position);
-                // remove your item from data base
-                mValues.remove(position);  // remove the item from list
-                notifyItemRemoved(position); // notify the adapter about the removed item
-                AppDatabase db = MyApplication.getInstance().getDatabase();
-                db.userIngredientDao().delete(theRemovedItem);
+                if (mValues.size()!=0) {
+                    UserIngredient theRemovedItem = mValues.get(position);
+                    // remove your item from data base
+                    mValues.remove(position);  // remove the item from list
+                    notifyItemRemoved(position); // notify the adapter about the removed item
+                    AppDatabase db = MyApplication.getInstance().getDatabase();
+                    db.userIngredientDao().delete(theRemovedItem);
+                }
             }
         });
     }

@@ -61,7 +61,7 @@ public class RegisterFragment extends Fragment {
                 if (TextUtils.isEmpty(name) || TextUtils.isEmpty(surname)
                         || TextUtils.isEmpty(password) || TextUtils.isEmpty(email)){
                     Toast.makeText(getActivity().getApplicationContext(),
-                            "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                            "Please all fields", Toast.LENGTH_SHORT).show();
 
                 } else {
                     User user = new User();
@@ -72,12 +72,12 @@ public class RegisterFragment extends Fragment {
                     AppDatabase db = MyApplication.getInstance().getDatabase();
                     db.userDao().insertAll(user);
                     Toast.makeText(getActivity().getApplicationContext(),
-                            "Votre compte a été créé avec succès", Toast.LENGTH_SHORT).show();
+                            "Account created", Toast.LENGTH_SHORT).show();
 
                     NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity().getApplicationContext(), "1");
                     mBuilder.setSmallIcon(R.drawable.ic_menu_share);
                     mBuilder.setContentTitle("QuoiManger");
-                    mBuilder.setContentText("Vous venez de créer votre compte!");
+                    mBuilder.setContentText("Account created!");
 
                     NotificationManager mNotificationManager = (NotificationManager) getActivity().getSystemService(getContext().NOTIFICATION_SERVICE);
 
