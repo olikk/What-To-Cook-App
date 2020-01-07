@@ -11,17 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bebe6275-524e-4021-8a48-acc63cd0ca0e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/APIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/APIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyRecipeRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyRecipeRecyclerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/RecipeIngredientsRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/RecipeIngredientsRecyclerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_recipe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_recipe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_recipe_more.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_recipe_more.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/recipe_ingrediant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/recipe_ingrediant.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+            <state relative-caret-position="265">
+              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="65" selection-end-column="9" />
               <folding>
                 <element signature="e#3916#3917#0" expanded="true" />
               </folding>
@@ -54,20 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recipe_more.xml">
           <provider editor-type-id="text-editor">
             <state relative-caret-position="668">
-              <caret line="62" column="57" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
+              <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyRecipeRecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
+            <state relative-caret-position="403">
               <caret line="58" column="42" lean-forward="true" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -80,10 +71,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+            <state relative-caret-position="301">
+              <caret line="121" column="112" selection-start-line="121" selection-start-column="112" selection-end-line="121" selection-end-column="112" />
               <folding>
-                <element signature="e#4726#4727#0" expanded="true" />
+                <element signature="e#5540#5541#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,17 +83,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-419">
-              <caret line="47" column="61" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="61" />
+            <state relative-caret-position="177">
+              <caret line="66" lean-forward="true" selection-start-line="63" selection-start-column="39" selection-end-line="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/retrofitModels/RecipeSummary.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+            <state relative-caret-position="231">
+              <caret line="170" column="74" lean-forward="true" selection-start-line="170" selection-start-column="74" selection-end-line="170" selection-end-column="74" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/register/RegisterFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,18 +143,6 @@
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/APIInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -205,7 +199,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/mon_ingrediant.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_my_ingredients.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/register/RegisterFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/retrofitModels/RecipesList.java" />
         <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
@@ -214,8 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/APIClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyIngredientsRecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/retrofitModels/Recipes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/API/APIInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/RecipeIngredientsRecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/recipe_ingrediant.xml" />
@@ -223,8 +214,11 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_recipe.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyRecipeRecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/register/RegisterFragment.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_recipe_more.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java" />
       </list>
     </option>
   </component>
@@ -761,16 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/register/RegisterFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/sessionmanagement/PreferencesUtility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -782,18 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-262">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="167" column="74" lean-forward="true" selection-start-line="166" selection-start-column="59" selection-end-line="167" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6566#6567#0" expanded="true" />
-            <element signature="e#6598#6599#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -893,40 +865,32 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="47" column="61" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+        <state relative-caret-position="265">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="65" selection-end-column="9" />
           <folding>
             <element signature="e#3916#3917#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/register/RegisterFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        <state relative-caret-position="281">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
-            <element signature="e#4726#4727#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyRecipeRecyclerViewAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/MyIngredientsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="58" column="42" lean-forward="true" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+        <state relative-caret-position="231">
+          <caret line="170" column="74" lean-forward="true" selection-start-line="170" selection-start-column="74" selection-end-line="170" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2285#2286#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -934,10 +898,38 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recipe_more.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="668">
-          <caret line="62" column="57" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/login/LoginFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="66" lean-forward="true" selection-start-line="63" selection-start-column="39" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/ui/recipe/RecipeMoreFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="121" column="112" selection-start-line="121" selection-start-column="112" selection-end-line="121" selection-end-column="112" />
+          <folding>
+            <element signature="e#5540#5541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/quoimangerapp/Adapters/MyRecipeRecyclerViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="58" column="42" lean-forward="true" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2285#2286#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

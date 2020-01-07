@@ -1,6 +1,7 @@
 package com.example.quoimangerapp.ui.recipe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -25,6 +26,7 @@ import com.example.quoimangerapp.API.retrofitModels.RecipesList;
 import com.example.quoimangerapp.Adapters.MyRecipeRecyclerViewAdapter;
 import com.example.quoimangerapp.Adapters.RecipeIngredientsRecyclerViewAdapter;
 import com.example.quoimangerapp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ public class RecipeMoreFragment extends Fragment {
     private static List<ExtendedIngredient> ingredients = new ArrayList<>();
     ImageView recipe_photo;
     TextView title, preparation_time, steps;
+    FloatingActionButton shareButon;
 
     public RecipeMoreFragment() {
         // Required empty public constructor
@@ -88,6 +91,7 @@ public class RecipeMoreFragment extends Fragment {
         title = root.findViewById(R.id.info_recipe_name);
         preparation_time = root.findViewById(R.id.info_recipe_time);
         steps = root.findViewById(R.id.info_instructions);
+        shareButon = root.findViewById(R.id.action_share);
 
         APIInterface apiInterface = APIClient.getApiInterface();
 
@@ -95,7 +99,7 @@ public class RecipeMoreFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
         Call<RecipeInformation> call = apiInterface.getRecipeInformation("application/json",
-                "application/json", id,"e7c4eeade409451b97542747eedc1f65");
+                "application/json", id, "e7c4eeade409451b97542747eedc1f65");
 
         call.enqueue(new Callback<RecipeInformation>() {
             @Override
@@ -108,8 +112,20 @@ public class RecipeMoreFragment extends Fragment {
                 title.setText(recipe_info.getTitle());
                 preparation_time.setText(String.valueOf(recipe_info.getReadyInMinutes()));
                 steps.setText(Html.fromHtml(recipe_info.getInstructions()));
+                shareButon.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_TEXT, recipe_info.getSourceUrl());
+                        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Envie d'essayer cette recette? ;)");
+                        startActivity(Intent.createChooser(intent, "Share"));
+                    }
+                });
 
             }
+
             @Override
             public void onFailure(Call<RecipeInformation> call, Throwable t) {
                 call.cancel();
@@ -117,6 +133,7 @@ public class RecipeMoreFragment extends Fragment {
                 t.printStackTrace();
             }
         });
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
