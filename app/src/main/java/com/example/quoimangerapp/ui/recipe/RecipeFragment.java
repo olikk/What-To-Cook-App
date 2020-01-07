@@ -36,7 +36,6 @@ import retrofit2.Response;
  */
 public class RecipeFragment extends Fragment {
 
-    //private OnListFragmentInteractionListener mListener;
     private static List<Recipes> values = new ArrayList<>();
 
 
@@ -62,6 +61,9 @@ public class RecipeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (container != null) {
+            container.removeAllViews();
+        }
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
         return view;
     }
@@ -80,7 +82,7 @@ public class RecipeFragment extends Fragment {
                 public void onResponse(Call<RecipesList> call, Response<RecipesList> response) {
                     Log.d("TAG", response.code() + "");
                     values = response.body().getRecipesList();
-                    recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
+                    recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(getActivity(),values));
                 }
                 @Override
                 public void onFailure(Call<RecipesList> call, Throwable t) {
@@ -91,7 +93,7 @@ public class RecipeFragment extends Fragment {
 
             });
         }else{
-            recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
+            recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(getActivity(), values));
         }
 
 

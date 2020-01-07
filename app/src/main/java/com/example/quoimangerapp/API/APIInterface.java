@@ -55,6 +55,8 @@ public interface APIInterface  {
 
     @GET("recipes/{id}/information")
     Call<RecipeInformation> getRecipeInformation(
+            @Header("Content-Type") String contentType,
+            @Header("Accept") String accept,
             @Path("id") int id,
             @Query("apiKey") String apiKey
     );

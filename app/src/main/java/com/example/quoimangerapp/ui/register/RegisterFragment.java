@@ -29,6 +29,11 @@ public class RegisterFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         registerViewModel =
                 ViewModelProviders.of(this).get(RegisterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_register, container, false);

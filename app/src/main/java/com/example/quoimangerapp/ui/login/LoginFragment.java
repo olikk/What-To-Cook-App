@@ -35,6 +35,10 @@ public class LoginFragment extends Fragment {
 
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
+        if (container != null) {
+            container.removeAllViews();
+        }
+
         loginViewModel = ViewModelProviders.of(this)
                 .get(LoginViewModel.class);
 
@@ -66,23 +70,30 @@ public class LoginFragment extends Fragment {
                 NavigationView navigationView = getActivity().findViewById(R.id.nav_view);
                 //login check
                 if ((TextUtils.isEmpty(email) || TextUtils.isEmpty(password))) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(),
+                            "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
                 } else {
                     AppDatabase db = MyApplication.getInstance().getDatabase();
                     User user = db.userDao().findByEmail(email);
                     if (user == null) {
-                        Toast.makeText(getActivity().getApplicationContext(), "email inconnu", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "email inconnu", Toast.LENGTH_SHORT).show();
                     } else {
                         if (!user.getPassword().equals(password)) {
-                            Toast.makeText(getActivity().getApplicationContext(), "mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "mot de passe incorrect", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getActivity().getApplicationContext(), "Vous êtes connecté", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "Vous êtes connecté", Toast.LENGTH_SHORT).show();
 
-                            SaveSharedPreferences.setLoggedIn(getActivity().getApplicationContext(),true);
-                            SaveSharedPreferences.setLoggedInUserId(getActivity().getApplicationContext(), user.getUid());
+                            SaveSharedPreferences.setLoggedIn(getActivity()
+                                    .getApplicationContext(),true);
+                            SaveSharedPreferences.setLoggedInUserId(getActivity()
+                                    .getApplicationContext(), user.getUid());
 
                             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
-                            navigationView.getMenu().findItem(R.id.nav_my_ingredients).setVisible(true);
+                            navigationView.getMenu().findItem(R.id.nav_my_ingredients)
+                                    .setVisible(true);
                             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
 
 

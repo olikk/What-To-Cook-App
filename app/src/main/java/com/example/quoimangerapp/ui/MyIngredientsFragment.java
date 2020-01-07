@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,9 +19,7 @@ import android.widget.Toast;
 import com.example.quoimangerapp.API.APIClient;
 import com.example.quoimangerapp.API.APIInterface;
 import com.example.quoimangerapp.API.retrofitModels.Recipes;
-import com.example.quoimangerapp.API.retrofitModels.RecipesList;
 import com.example.quoimangerapp.Adapters.MyIngredientsRecyclerViewAdapter;
-import com.example.quoimangerapp.Adapters.MyRecipeRecyclerViewAdapter;
 import com.example.quoimangerapp.Database.AppDatabase;
 import com.example.quoimangerapp.Database.Entity.UserIngredient;
 import com.example.quoimangerapp.MyApplication;
@@ -92,6 +89,9 @@ public class MyIngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (container != null) {
+            container.removeAllViews();
+        }
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_ingredients, container, false);
 
@@ -125,11 +125,13 @@ public class MyIngredientsFragment extends Fragment {
 
                 if ((TextUtils.isEmpty(ingredientValue))) {
 
-                    Toast.makeText(getActivity().getApplicationContext(), "Veuillez remplir le nom d'ingrédiant", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(),
+                            "Veuillez remplir le nom d'ingrédiant", Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    int userId = SaveSharedPreferences.getLoggedInUserId(getActivity().getApplicationContext());
+                    int userId = SaveSharedPreferences.getLoggedInUserId(getActivity()
+                            .getApplicationContext());
 
                     UserIngredient userIngredient = new UserIngredient();
                     userIngredient.setIngredient(ingredientValue);
@@ -152,18 +154,21 @@ public class MyIngredientsFragment extends Fragment {
             public void onClick(View v) {
                 APIInterface apiInterface = APIClient.getApiInterface();
 
-                Call<List<Recipes>> call = apiInterface.findRecipesByIngredients("application/json",
+                Call<List<Recipes>> call = apiInterface
+                        .findRecipesByIngredients("application/json",
                         "application/json", getIngredientsListAsStringPerLine(mValues),
                         true, 6,1,
                         "e7c4eeade409451b97542747eedc1f65");
                 call.enqueue(new Callback<List<Recipes>>() {
                     @Override
-                    public void onResponse(Call<List<Recipes>> call, Response<List<Recipes>> response) {
+                    public void onResponse(Call<List<Recipes>> call,
+                                           Response<List<Recipes>> response) {
                         Log.d("TAG", response.code() + "");
                         values = response.body();
 
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.replace(R.id.nav_host_fragment, (new RecipeFragment()).newInstance((ArrayList<Recipes>)values));
+                        ft.replace(R.id.nav_host_fragment, (new RecipeFragment())
+                                .newInstance((ArrayList<Recipes>)values));
                         ft.commit();
                     }
                     @Override
