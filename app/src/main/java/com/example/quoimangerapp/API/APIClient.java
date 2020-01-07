@@ -107,15 +107,5 @@ public class APIClient {
         call.enqueue(callback);
     }
 
-    public void findRecipesByIngredients(final IngredientsMapper ingredientsMapper, final Callback<List<Recipe>> callback) {
-
-        Call<List<Recipe>> call = apiInterface.findRecipesByIngredients( ingredientsMapper.isFillIngredients(),
-                ingredientsMapper.getIngredientsAsString(","),
-                ingredientsMapper.isLimitLicense(),
-                ingredientsMapper.getNumber(),
-                ingredientsMapper.getRanking(), API_KEY);
-
-        call.enqueue(callback);
-    }
 
 }

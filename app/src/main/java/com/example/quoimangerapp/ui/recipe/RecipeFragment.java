@@ -37,18 +37,24 @@ import retrofit2.Response;
 public class RecipeFragment extends Fragment {
 
     //private OnListFragmentInteractionListener mListener;
-    private List<Recipes> values = new ArrayList<>();
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public RecipeFragment() {
+    private static List<Recipes> values = new ArrayList<>();
+
+
+    public static RecipeFragment newInstance(ArrayList<Recipes> recipes) {
+        RecipeFragment fragment = new RecipeFragment();
+        Bundle args = new Bundle();
+        args.putParcelableArrayList("list", recipes);
+        fragment.setArguments(args);
+        return fragment;
     }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            values = getArguments().getParcelableArrayList("list");
+        }
 
 
     }
@@ -66,24 +72,28 @@ public class RecipeFragment extends Fragment {
         APIInterface apiInterface = APIClient.getApiInterface();
         RecyclerView recyclerView = root.findViewById(R.id.recipe_list_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
+        if(getArguments() == null){
+            Call<RecipesList> call = apiInterface.allRecipes("application/json",
+                    "application/json","e7c4eeade409451b97542747eedc1f65", 6);
+            call.enqueue(new Callback<RecipesList>() {
+                @Override
+                public void onResponse(Call<RecipesList> call, Response<RecipesList> response) {
+                    Log.d("TAG", response.code() + "");
+                    values = response.body().getRecipesList();
+                    recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
+                }
+                @Override
+                public void onFailure(Call<RecipesList> call, Throwable t) {
+                    call.cancel();
+                    System.out.println("call"+ call.toString());
+                    t.printStackTrace();
+                }
 
-        Call<RecipesList> call = apiInterface.allRecipes("application/json",
-                "application/json","e7c4eeade409451b97542747eedc1f65", 6);
-        call.enqueue(new Callback<RecipesList>() {
-            @Override
-            public void onResponse(Call<RecipesList> call, Response<RecipesList> response) {
-                Log.d("TAG", response.code() + "");
-                values = response.body().getRecipesList();
-                recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
-            }
-            @Override
-            public void onFailure(Call<RecipesList> call, Throwable t) {
-                call.cancel();
-                System.out.println("call"+ call.toString());
-                t.printStackTrace();
-            }
+            });
+        }else{
+            recyclerView.setAdapter(new MyRecipeRecyclerViewAdapter(values));
+        }
 
-        });
 
     }
 

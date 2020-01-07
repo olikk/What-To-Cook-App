@@ -1,8 +1,11 @@
 package com.example.quoimangerapp.API.retrofitModels;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Recipes {
+public class Recipes implements Parcelable{
     @SerializedName("id")
     private Integer id;
 
@@ -12,6 +15,10 @@ public class Recipes {
     @SerializedName("title")
     private String title;
 
+    private Recipes(Parcel parcel){
+        image = parcel.readString();
+        title = parcel.readString();
+    }
     public Integer getId() {
         return id;
     }
@@ -44,4 +51,25 @@ public class Recipes {
                 ", titile=" + title +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(image);
+        dest.writeString(title);
+    }
+
+    public static final Parcelable.Creator<Recipes> CREATOR = new
+            Parcelable.Creator<Recipes>() {
+                public Recipes createFromParcel(Parcel in) {
+                    return new Recipes(in);
+                }
+
+                public Recipes[] newArray(int size) {
+                    return new Recipes[size];
+                }};
 }

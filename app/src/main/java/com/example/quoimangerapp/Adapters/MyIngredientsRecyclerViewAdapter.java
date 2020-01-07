@@ -3,11 +3,14 @@ package com.example.quoimangerapp.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quoimangerapp.Database.AppDatabase;
 import com.example.quoimangerapp.Database.Entity.UserIngredient;
+import com.example.quoimangerapp.MyApplication;
 import com.example.quoimangerapp.R;
 import com.example.quoimangerapp.dummy.DummyContent.DummyItem;
 
@@ -25,6 +28,8 @@ public class MyIngredientsRecyclerViewAdapter extends RecyclerView.Adapter<MyIng
         mValues = items;
     }
 
+
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -35,19 +40,17 @@ public class MyIngredientsRecyclerViewAdapter extends RecyclerView.Adapter<MyIng
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        //holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).getIngredient());
-/*
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
+        holder.mDelete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
+                UserIngredient theRemovedItem = mValues.get(position);
+                // remove your item from data base
+                mValues.remove(position);  // remove the item from list
+                notifyItemRemoved(position); // notify the adapter about the removed item
+                AppDatabase db = MyApplication.getInstance().getDatabase();
+                db.userIngredientDao().delete(theRemovedItem);
             }
-        });*/
+        });
     }
 
     @Override
@@ -59,11 +62,13 @@ public class MyIngredientsRecyclerViewAdapter extends RecyclerView.Adapter<MyIng
         public final View mView;
         public final TextView mContentView;
         public UserIngredient mItem;
+        public  final ImageButton mDelete;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mContentView = mView.findViewById(R.id.list_item_string);
+            mDelete = view.findViewById(R.id.delete_btn);
         }
 
         @Override

@@ -43,8 +43,9 @@ public interface APIInterface  {
 
 
     @GET("recipes/findByIngredients")
-    Call<List<Recipe>> findRecipesByIngredients(
-            @Query("fillIngredients") boolean fillIngredients,
+    Call<List<Recipes>> findRecipesByIngredients(
+            @Header("Content-Type") String contentType,
+            @Header("Accept") String accept,
             @Query("ingredients") String ingredients,
             @Query("limitLicense") boolean limitLicense,
             @Query("number") Integer number,
@@ -55,7 +56,6 @@ public interface APIInterface  {
     @GET("recipes/{id}/information")
     Call<RecipeInformation> getRecipeInformation(
             @Path("id") int id,
-            @Query("includeNutrition") boolean includeNutrition,
             @Query("apiKey") String apiKey
     );
 

@@ -2,7 +2,6 @@ package com.example.quoimangerapp.Adapters;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,21 +33,17 @@ public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        String url;
         holder.mItem = mValues.get(position);
-        Picasso.get().load("https://spoonacular.com/recipeImages/" + mValues.get(position)
-                        .getImage()).into(holder.mPhotoView);
-        Log.d("TAG",  mValues.get(position).getTitle()+ "");
         holder.mContentView.setText(mValues.get(position).getTitle());
-        /*holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    //mListener.onListFragmentInteraction(holder.mItem);
-                }
-            }
-        });*/
+        if (mValues.get(position).getImage().contains("https")){
+            url = mValues.get(position).getImage();
+        }else{
+            url = "https://spoonacular.com/recipeImages/" + mValues.get(position).getImage();
+        }
+        Picasso.get().load(url).into(holder.mPhotoView);
+
+
     }
 
     @Override
@@ -60,6 +55,7 @@ public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRe
         public final View mView;
         public final ImageView mPhotoView;
         public final TextView mContentView;
+
         public Recipes mItem;
 
         public ViewHolder(View view) {
@@ -67,6 +63,8 @@ public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRe
             mView = view;
             mPhotoView = view.findViewById(R.id.recipe_photo);
             mContentView = view.findViewById(R.id.recipe_list_name);
+
+
         }
 
         @Override
